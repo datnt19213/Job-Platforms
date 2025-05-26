@@ -1,6 +1,8 @@
-import translationJSON from "@/locales/vi/translation.json";
+import translationJSON from '@/locales/vi/translation.json';
 
-import i18next from "../../../i18n"; // Import i18next instance
+import i18next from '../../../i18n';
+
+// Import i18next instance
 export type KeyJSON = keyof typeof translationJSON;
 /**
  * Utility function to fetch translations using i18next
