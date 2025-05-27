@@ -132,7 +132,7 @@ export const ScrollAnimator = ({
   easing = "easeOut",
   loop = false,
   reverse = false,
-  triggerOffset = 0.4,
+  triggerOffset = 0.25,
   className,
   triggerIds,
   rootMargin = "0px 0px -10% 0px",
