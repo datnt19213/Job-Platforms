@@ -18,15 +18,16 @@ interface SelectionsBaseProps {
   value?: string;
   disabled?: boolean;
   onValueChange?: (value: string) => void;
+  placeholderClassName?: string;
 }
 
 
 
-export const SelectionsBase: React.FC<SelectionsBaseProps> = ({ items, triggerClassName, placeholder = "Select", className, value, disabled, onValueChange }) => {
+export const SelectionsBase: React.FC<SelectionsBaseProps> = ({ items, triggerClassName, placeholder = "Select", className, value, disabled, onValueChange, placeholderClassName }) => {
 	return (
 		<Select onValueChange={onValueChange} disabled={disabled} value={value} >
 			<SelectTrigger className={cn("w-[143px] !h-[45px] focus-visible:ring-0 focus-visible:ring-offset-0", triggerClassName)}>
-				<SelectValue placeholder={placeholder} />
+				<SelectValue placeholder={placeholder} className={placeholderClassName} />
 			</SelectTrigger>
 			<SelectContent className={cn("border-gray-50 bg-white hover:bg-white shadow-light",className)}>
         {items.map((item) => (

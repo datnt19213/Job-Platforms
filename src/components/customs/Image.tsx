@@ -1,10 +1,12 @@
-import {useState} from "react";
+"use client"
+import { useState } from 'react';
 
 interface ImageProps {
   src: string;
   alt?: string;
   className?: string;
   fallbackSrc?: string;
+  fit?: "w" | "h" | "both";
 }
 
 const Image: React.FC<ImageProps> = ({
@@ -12,6 +14,7 @@ const Image: React.FC<ImageProps> = ({
   alt = "image",
   className = "",
   fallbackSrc = "/fallback.jpg",
+  fit = "both",
 }) => {
   const [imgSrc, setImgSrc] = useState(src);
   const [loading, setLoading] = useState(true);
@@ -24,7 +27,7 @@ const Image: React.FC<ImageProps> = ({
       <img
         src={imgSrc}
         alt={alt}
-        className={`w-full h-full object-cover transition-opacity duration-500 ${
+        className={`${fit === "w" ? "w-full h-auto" : fit === "h" ? "h-full w-auto" : "w-full h-full"} object-cover transition-opacity duration-500 ${
           loading ? "opacity-0" : "opacity-100"
         }`}
         onLoad={() => setLoading(false)}

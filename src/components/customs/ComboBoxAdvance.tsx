@@ -53,14 +53,38 @@ export function ComboBoxBase({
 	classNameItem,
 }: ComboBoxBaseProps) {
 	const [open, setOpen] = React.useState(false);
+	const [width, setWidth] = React.useState<number>(0);
+
+	const triggerRef = React.useRef<HTMLButtonElement>(null);
 
 	const selectedOption = options.find((opt) => opt.value === selectedValue);
+
+  React.useEffect(() => {
+    const node = triggerRef.current;
+    if (!node) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === node) {
+          setWidth(entry.contentRect.width);
+        }
+      }
+    });
+
+    observer.observe(node);
+
+    // Cleanup khi unmount
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
 				<Button
 					variant="outline"
+					ref={triggerRef}
 					role="combobox"
 					disabled={disabled}
 					aria-expanded={open}
@@ -70,14 +94,14 @@ export function ComboBoxBase({
 					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className={cn("w-[250px] p-0 bg-white", className)}>
+			<PopoverContent style={{ width }} className={cn("w-[250px] p-0 bg-white", className)}>
 				<Command className='bg-white'>
 					<CommandInput placeholder="Tìm kiếm..." className={cn("",classNameInput)} />
 					<CommandEmpty>Không tìm thấy mục nào.</CommandEmpty>
 					<CommandGroup className={cn("border-gray-50 bg-white hover:bg-white shadow-light max-h-[500px] overflow-y-auto",classNameList)}>
 						{options.map((option) => (
 							<CommandItem
-								className={cn("hover:bg-gray-100",classNameItem)}
+								className={cn("hover:bg-gray-100 h-[45px]",classNameItem)}
 								key={option.value}
 								value={option.label}
 								onSelect={() => {

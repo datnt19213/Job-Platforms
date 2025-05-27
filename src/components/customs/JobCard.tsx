@@ -36,6 +36,7 @@ const JobCard: React.FC<Props> = ({
 }) => {
 	return (
 		<FlexLayout
+		id={String(data?.title) || ""}
 			direction="col"
 			justify="start"
 			className="p-[15px] xl:p-[30px] border border-gray-200 hover:border-blue-hover duration-500 hover:shadow-light rounded-[8px] xl:rounded-[18px] min-w-[300px] transition-all w-full min-[990px]:w-full gap-[18px]"

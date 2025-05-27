@@ -1,17 +1,17 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Jost } from 'next/font/google';
 
 import NonHyration from '@/components/non-hydration';
 import { GlobalProviders } from '@/providers/global-provider';
 import { ThemeProvider } from '@/providers/theme-provider';
 import WrapperProvider from '@/providers/wrapper-provider';
 
-const jost = Jost({
-	variable: "--font-jost",
-	subsets: ["latin"],
-});
+// const jost = Jost({
+// 	variable: "--font-jost",
+// 	subsets: ["latin"],
+// });
+
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body suppressHydrationWarning className={`${jost.variable} antialiased`}>
+			<body suppressHydrationWarning className={`!font-svn-gilroy antialiased`}>
 				<NonHyration>
 					<ThemeProvider
 						attribute="class"

@@ -28,7 +28,7 @@ const JobInfoBlock: React.FC<JobInfoBlockProps> = ({
 			<span className={cn("text-base text-[15px] font-semibold", descriptionClassName)}>
 				{description}
 			</span>
-			<p className='flex flex-col gap-[10px] text-[15px] text-gray-600'>
+			<div className='flex flex-col gap-[10px] text-[15px] text-gray-600'>
 				<h3 className="font-semibold text-[18px]">Key Responsibilities</h3>
 				<ul className="list-circle flex flex-col gap-[10px]">
 					<li>
@@ -66,7 +66,7 @@ const JobInfoBlock: React.FC<JobInfoBlockProps> = ({
 					</li>
 					<li>You are familiar using Jira and Confluence in your workflow</li>
 				</ul>
-			</p>
+			</div>
 		</FlexLayout>
 	);
 };

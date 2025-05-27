@@ -1,9 +1,10 @@
 import React from 'react';
 
-const JobDetail = () => {
-  return (
-    <div className='font-jost'>JobDetail:</div>
-  )
-}
+import JobDetails from '@/features/job-details';
 
-export default JobDetail
+const JobDetail = async ({ params }: any) => {
+  const { slug } = params;
+  return <JobDetails slug={slug} />;
+};
+
+export default JobDetail;

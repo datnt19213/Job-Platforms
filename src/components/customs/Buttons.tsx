@@ -39,7 +39,7 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
 			variant={variant}
 			size={size}
 			className={cn(
-				"h-[50px] cursor-pointer w-fit px-10  ",
+				"h-[50px] cursor-pointer w-fit px-10 font-semibold transition-all",
 				variant === "default" ? "bg-blue-hover text-white hover:bg-blue-hover" : "",
 				variant === "secondary" ? "bg-blue-not-hover hover:bg-blue-hover text-blue-hover  hover:text-white" : "",
 				className
@@ -66,7 +66,7 @@ export const ButtonLikeBadge: React.FC<ButtonLikeBadgeProps> = ({
 			variant={variant}
 			size={size}
 			className={cn(
-				"h-[34px] rounded-full cursor-pointer w-fit py-[4px] px-[14px] text-sm font-normal transition-all bg-white border border-gray-200 hover:bg-white text-black ",
+				"h-[34px] rounded-full cursor-pointer w-fit py-[4px] px-[14px] text-sm flex items-center font-normal transition-all bg-white border border-gray-200 hover:bg-white text-black ",
 				isHover ? "hover:text-blue-hover" : "",
 				isActive ? "text-blue-hover bg-blue-not-hover" : "",
 				isClick ? "cursor-pointer" : "cursor-text ",

@@ -2,6 +2,7 @@
 import React from 'react';
 
 import {
+  Briefcase,
   MapPinIcon,
   Search,
 } from 'lucide-react';
@@ -13,6 +14,7 @@ import { GridLayout } from '@/components/customs/GridLayout';
 import { SelectionsBase } from '@/components/customs/Selections';
 import { Input } from '@/components/ui/input';
 import { useJobSearchFilters } from '@/hooks/common/useJobSearchFilter';
+import { useCandidateSearchFilters } from '@/hooks/common/useCandidateSearchFilter';
 
 const locations = [
 	{value: "new-york", label: "New York"},
@@ -84,46 +86,53 @@ const categoryOptions = [
 	{value: "art-culture", label: "Art & Culture"},
 ];
 
-const BigSearchBar = () => {
+interface BigSearchBarProps {
+	type: "job" | "candidate";
+	onSearch?: (filters: any) => void;
+}
+
+const BigSearchBar: React.FC<BigSearchBarProps> = ({type = "job"}) => {
 	const {applyFilters, filters, resetFilters, setFilter} = useJobSearchFilters();
-	return (
-		<FlexLayout direction="col" justify="start" className="w-full bg-[#C2E4FF]">
+	const {applyFilters: applyCandidateFilters, filters: candidateFilters, resetFilters: resetCandidateFilters, setFilter: setCandidateFilter} = useCandidateSearchFilters();
+
+	if(type === "job") return (
+		<FlexLayout direction="col" justify="start" className="w-full bg-[#C2E4FF] py-[50px]">
 			<FlexLayout
 				direction="col"
 				justify="start"
 				className="max-w-[1320px] p-[15px] mx-auto w-full"
 			>
-				<div className="flex items-center text-[25px] mb-[30px] min-[990px]:text-[50px] font-semibold">
-					There Are&nbsp; <span className="text-blue-hover">93,178</span>&nbsp; Postings Here For
+				<span className="text-[25px] mb-[30px] min-[990px]:text-[50px] font-semibold">
+					There Are&nbsp;<span className="text-blue-hover">93,178</span>&nbsp;Postings Here For
 					you!
-				</div>
+				</span>
 				<span className="mb-[30px]">Find Jobs, Employment & Career Opportunities</span>
-				<GridLayout className="p-5 bg-white rounded-[8px] grid !grid-cols-[1fr_1fr_1fr_0.5fr] w-full mb-[30px]">
-					<FlexLayout direction="row" align="center" className="h-[60px] border-r border-gray-300">
+				<GridLayout className="p-5 bg-white rounded-[8px] grid !grid-cols-[1fr] 990:!grid-cols-[1fr_1fr_1fr_0.5fr] w-full mb-[30px] gap-0 990:gap-4">
+					<FlexLayout direction="row" align="center" className="h-[60px] pt-0 990:pt-0 border-t-0 990:border-r 990:border-t-0 border-gray-300">
 						<Search size={20} />
 						<Input
-							className="border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+							className="font-medium text-[15px] h-[45px] placeholder:text-[15px] placeholder:font-medium border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 							placeholder="Job title, keywords..."
 							value={filters.keyword}
 							onChange={(e) => setFilter("keyword", e.target.value)}
 						/>
 					</FlexLayout>
-					<FlexLayout direction="row" align="center" className="h-[60px] border-r border-gray-300">
+					<FlexLayout direction="row" align="center" className="h-[72px] 990:h-[60px] border-t 990:border-r 990:border-t-0 border-gray-300">
 						<MapPinIcon size={20} />
 						<SelectionsBase
 							items={locations}
-							triggerClassName="w-full border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+							triggerClassName="font-medium text-[15px] w-full border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 							className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 							placeholder="City or postcode"
 							value={filters.location}
 							onValueChange={(e) => setFilter("location", e)}
 						/>
 					</FlexLayout>
-					<FlexLayout direction="row" align="center" className="h-[60px] border-r border-gray-300">
-						<Search size={20} />
+					<FlexLayout direction="row" align="center" className="h-[72px] 990:h-[60px] border-t 990:border-r 990:border-t-0 border-gray-300">
+						<Briefcase size={20} className='min-w-5' />
 						<ComboBoxBase
 							options={categoryOptions}
-							triggerClassName="w-full border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none bg-white"
+							triggerClassName="font-medium text-[15px] text-gray-600 w-[calc(100%-20px)] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none bg-white"
 							className="border-gray-200 bg-white outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 							placeholder="All Categories"
 							selectedValue={filters.category}
@@ -137,10 +146,10 @@ const BigSearchBar = () => {
 						Find Jobs
 					</ButtonBase>
 				</GridLayout>
-				<FlexLayout direction="row" align="center" className="w-full gap-3">
+				<FlexLayout  align="center" className="w-full gap-6 990:gap-3 flex-col 990:flex-row">
 					<SelectionsBase
 						items={locations}
-						triggerClassName="w-full bg-white w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						placeholder="Job type"
 						value={filters.jobType}
@@ -148,7 +157,7 @@ const BigSearchBar = () => {
 					/>
 					<SelectionsBase
 						items={locations}
-						triggerClassName="w-full bg-white w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						placeholder="Experience level"
 						value={filters.experienceLevel}
@@ -156,7 +165,7 @@ const BigSearchBar = () => {
 					/>
 					<SelectionsBase
 						items={locations}
-						triggerClassName="w-full bg-white w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						placeholder="Career level"
 						value={filters.careerLevel}
@@ -164,11 +173,98 @@ const BigSearchBar = () => {
 					/>
 					<SelectionsBase
 						items={locations}
-						triggerClassName="w-full bg-white w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
 						placeholder="Qualification"
 						value={filters.qualification}
 						onValueChange={(e) => setFilter("qualification", e)}
+					/>
+				</FlexLayout>
+			</FlexLayout>
+		</FlexLayout>
+	);
+	if(type === "candidate") return (
+		<FlexLayout direction="col" justify="start" className="w-full bg-[#C2E4FF] py-[50px]">
+			<FlexLayout
+				direction="col"
+				justify="start"
+				className="max-w-[1320px] p-[15px] mx-auto w-full"
+			>
+				<span className="text-[25px] mb-[30px] min-[990px]:text-[50px] font-semibold">
+					Hire people for your business
+				</span>
+				<span className="mb-[30px]">Discover your next career move, freelance gig, or internship</span>
+				<GridLayout className="p-5 bg-white rounded-[8px] grid !grid-cols-[1fr] 990:!grid-cols-[1fr_1fr_1fr_0.5fr] w-full mb-[30px] gap-0 990:gap-4">
+					<FlexLayout direction="row" align="center" className="h-[60px] pt-0 990:pt-0 border-t-0 990:border-r 990:border-t-0 border-gray-300">
+						<Search size={20} />
+						<Input
+							className="font-medium text-[15px] h-[45px] placeholder:text-[15px] placeholder:font-medium border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+							placeholder="Candidate title, keywords..."
+							value={candidateFilters.keyword}
+							onChange={(e) => setCandidateFilter("keyword", e.target.value)}
+						/>
+					</FlexLayout>
+					<FlexLayout direction="row" align="center" className="h-[72px] 990:h-[60px] border-t 990:border-r 990:border-t-0 border-gray-300">
+						<MapPinIcon size={20} />
+						<SelectionsBase
+							items={locations}
+							triggerClassName="font-medium text-[15px] w-full border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+							className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+							placeholder="City or postcode"
+							value={candidateFilters.location}
+							onValueChange={(e) => setCandidateFilter("location", e)}
+						/>
+					</FlexLayout>
+					<FlexLayout direction="row" align="center" className="h-[72px] 990:h-[60px] border-t 990:border-r 990:border-t-0 border-gray-300">
+						<Briefcase size={20} className='min-w-5' />
+						<ComboBoxBase
+							options={categoryOptions}
+							triggerClassName="font-medium text-[15px] text-gray-600 w-[calc(100%-20px)] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none bg-white"
+							className="border-gray-200 bg-white outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+							placeholder="All Categories"
+							selectedValue={candidateFilters.category}
+							onSelect={(e) => setCandidateFilter("category", e.value)}
+						/>
+					</FlexLayout>
+					<ButtonBase
+						className="h-[60px] bg-blue-hover hover:bg-white hover:border hover:border-blue-hover hover:text-blue-hover  text-white w-full"
+						onClick={applyFilters}
+					>
+						Find Jobs
+					</ButtonBase>
+				</GridLayout>
+				<FlexLayout  align="center" className="w-full gap-6 990:gap-3 flex-col 990:flex-row">
+					<SelectionsBase
+						items={locations}
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						placeholder="Gender"
+						value={candidateFilters.gender}
+						onValueChange={(e) => setCandidateFilter("gender", e)}
+					/>
+					<SelectionsBase
+						items={locations}
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						placeholder="Qualification"
+						value={candidateFilters.qualification}
+						onValueChange={(e) => setCandidateFilter("qualification", e)}
+					/>
+					<SelectionsBase
+						items={locations}
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						placeholder="Experience level"
+						value={candidateFilters.experienceLevel}
+						onValueChange={(e) => setCandidateFilter("experienceLevel", e)}
+					/>
+					<SelectionsBase
+						items={locations}
+						triggerClassName="text-[15px] font-medium !text-black w-full bg-white 990:w-[160px] !h-[45px] border-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						className="border-gray-200 outline-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+						placeholder="Languages"
+						value={candidateFilters.language}
+						onValueChange={(e) => setCandidateFilter("language", e)}
 					/>
 				</FlexLayout>
 			</FlexLayout>

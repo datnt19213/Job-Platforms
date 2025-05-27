@@ -1,8 +1,9 @@
+import CandidatesFind from '@/features/candidates';
 import React from 'react';
 
 const Candidates = () => {
   return (
-    <div>Candidates</div>
+    <CandidatesFind />
   )
 }
 
