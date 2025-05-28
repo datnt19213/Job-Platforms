@@ -5,6 +5,7 @@ interface ImageProps {
   src: string;
   alt?: string;
   className?: string;
+  imageClass?: string; // Add this line
   fallbackSrc?: string;
   fit?: "w" | "h" | "both";
 }
@@ -13,6 +14,7 @@ const Image: React.FC<ImageProps> = ({
   src,
   alt = "image",
   className = "",
+  imageClass = "", // Add this line
   fallbackSrc = "/fallback.jpg",
   fit = "both",
 }) => {
@@ -29,7 +31,7 @@ const Image: React.FC<ImageProps> = ({
         alt={alt}
         className={`${fit === "w" ? "w-full h-auto" : fit === "h" ? "h-full w-auto" : "w-full h-full"} object-cover transition-opacity duration-500 ${
           loading ? "opacity-0" : "opacity-100"
-        }`}
+        } ${imageClass}`}
         onLoad={() => setLoading(false)}
         onError={() => setImgSrc(fallbackSrc)}
       />

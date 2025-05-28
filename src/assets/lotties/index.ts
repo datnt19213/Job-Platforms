@@ -1,0 +1,1 @@
+export { default as CheckedLottie } from './checked.json';
