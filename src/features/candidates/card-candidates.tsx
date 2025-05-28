@@ -62,7 +62,7 @@ export const CardCandidates = () => {
 								"Hello my name is Nicole Wells and web developer from Portland. In pharetra orci dignissim, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl aliquam nisi, euismod aliquam nisl nisl sit amet nunc."
 							}
 							subtitle={
-								<Link href="/candidate-detail" className="text-blue-hover font-medium">
+								<Link href={`/candidate/${index}`} className="text-blue-hover font-medium">
 									Developer
 								</Link>
 							}
