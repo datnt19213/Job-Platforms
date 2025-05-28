@@ -86,11 +86,11 @@ export const RightDetail = () => {
 			<Location />
 			<ProfessionalSkills
 				skills={[
-					{label: "Communication", value: "80%"},
-					{label: "Teamwork", value: "90%"},
-					{label: "Problem Solving", value: "70%"},
-					{label: "Time Management", value: "85%"},
-					{label: "Leadership", value: "95%"},
+					{label: "Communication", value: "react"},
+					{label: "Teamwork", value: "react"},
+					{label: "Problem Solving", value: "react"},
+					{label: "Time Management", value: "react"},
+					{label: "Leadership", value: "react"},
 				]}
 			/>
 		</FlexLayout>

@@ -19,11 +19,11 @@ const info = {
   address: 'Hà Nội',
   salary: 100,
   skills: [
-    {label: 'React', value: '80%'},
-    {label: 'NodeJS', value: '70%'},
-    {label: 'MongoDB', value: '60%'},
-    {label: 'NextJS', value: '50%'},
-    {label: 'TypeScript', value: '40%'},
+    {label: 'React', value: 'react'},
+    {label: 'NodeJS', value: 'react'},
+    {label: 'MongoDB', value: 'react'},
+    {label: 'NextJS', value: 'react'},
+    {label: 'TypeScript', value: 'react'},
   ],
   featured: true,
 }
