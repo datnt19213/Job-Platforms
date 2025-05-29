@@ -6,7 +6,7 @@ import { FlexLayout } from '@/components/customs/FlexLayout';
 import { SelectionsBase } from '@/components/customs/Selections';
 import BodyContainer from '@/containers/body-container';
 
-import BigSearchBar from '../jobs/components/big-search-bar';
+import BigSearchBar from '../../components/customs/BigSearchBar';
 import { CardCandidates } from './card-candidates';
 
 const sorts = [

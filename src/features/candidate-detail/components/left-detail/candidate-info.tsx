@@ -1,18 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import {
-  DollarSign,
-  MapPin,
-  MoveUpRight,
-} from 'lucide-react';
-import Link from 'next/link';
+import {DollarSign, MapPin, MoveUpRight} from "lucide-react";
+import Link from "next/link";
 
-import {
-  ButtonBase,
-  ButtonLikeBadge,
-} from '@/components/customs/Buttons';
-import CardIconDetail from '@/components/customs/CardIconDetail';
-import { FlexLayout } from '@/components/customs/FlexLayout';
+import {ButtonBase, ButtonLikeBadge} from "@/components/customs/Buttons";
+import CardIconDetail from "@/components/customs/CardIconDetail";
+import {FlexLayout} from "@/components/customs/FlexLayout";
 
 interface CandidateInfoProps {
 	avatar: string;
@@ -65,30 +58,25 @@ export const CandidateInfo: React.FC<CandidateInfoProps> = ({
 				/>
 				<FlexLayout direction="row" justify="start" align="start" className="gap-[10px] flex-wrap">
 					{skills?.map((skill, index) => (
-						<Link key={index} href={`/${skill?.value}`}>
-							<ButtonLikeBadge className="border-gray-200 hover:bg-gray-200 hover:text-black">
-								{skill?.label}
-							</ButtonLikeBadge>
-						</Link>
+						<ButtonLikeBadge
+							key={index}
+							className="border-gray-200 hover:bg-gray-200 hover:text-black"
+						>
+							{skill?.label}
+						</ButtonLikeBadge>
 					))}
 				</FlexLayout>
 
-				<FlexLayout direction="row" justify="start" align="start" className="gap-[10px] flex-wrap">
-					<Link href={`/candidate/${name}`}>
-						<ButtonBase variant="secondary" className="w-full border border-blue-hover mt-[15px]">
-							Short Link <MoveUpRight size={20} />
-						</ButtonBase>
-					</Link>
-					<Link href={`/candidate/${name}`}>
-						<ButtonBase className="w-full border border-blue-hover mt-[15px]">
-							Invite <MoveUpRight size={20} />
-						</ButtonBase>
-					</Link>
-					<Link href={`/candidate/${name}`}>
-						<ButtonBase className="w-full border border-blue-hover mt-[15px]">
-							Download CV <MoveUpRight size={20} />
-						</ButtonBase>
-					</Link>
+				<FlexLayout direction="row" justify="start" align="start" className="gap-[10px] flex-wrap w-full 990:w-fit">
+					<ButtonBase variant="secondary" className="w-full 990:w-fit border border-blue-hover mt-[15px]">
+						Short Link <MoveUpRight size={20} />
+					</ButtonBase>
+					<ButtonBase className="w-full 990:w-fit border border-blue-hover mt-[15px]">
+						Invite <MoveUpRight size={20} />
+					</ButtonBase>
+					<ButtonBase className="w-full 990:w-fit border border-blue-hover mt-[15px]">
+						Download CV <MoveUpRight size={20} />
+					</ButtonBase>
 				</FlexLayout>
 			</FlexLayout>
 			<FlexLayout

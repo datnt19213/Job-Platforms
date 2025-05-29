@@ -5,8 +5,8 @@ import { Facebook, Twitter } from 'lucide-react'
 
 const SharePost = () => {
   return (
-    <FlexLayout direction="row" justify="start" align="center" className="gap-[10px] py-[30px]">
-      <span className='font-semibold text-base'>Share this post</span>
+    <FlexLayout direction="row" justify="start" align="center" className="gap-[10px] py-[30px] flex-wrap">
+      <span className='font-semibold text-base w-fit'>Share this post</span>
       <FlexLayout direction="row" justify="start" align="center" className="gap-[10px]">
         <Button className='bg-blue-share hover:bg-blue-share cursor-pointer' >
           <Facebook size={24} />

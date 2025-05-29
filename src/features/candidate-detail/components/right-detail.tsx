@@ -1,21 +1,13 @@
 "use client";
-import React from 'react';
+import React from "react";
 
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from 'lucide-react';
-import Link from 'next/link';
+import {Facebook, Instagram, Linkedin, Twitter} from "lucide-react";
+import Link from "next/link";
 
-import {
-  ButtonBase,
-  ButtonLikeBadge,
-} from '@/components/customs/Buttons';
-import { FlexLayout } from '@/components/customs/FlexLayout';
-import { MapFrame } from '@/components/customs/Map';
-import useCurrentLocation from '@/utils/location';
+import {ButtonBase, ButtonLikeBadge} from "@/components/customs/Buttons";
+import {FlexLayout} from "@/components/customs/FlexLayout";
+import {MapFrame} from "@/components/customs/Map";
+import useCurrentLocation from "@/utils/location";
 
 export const RightDetail = () => {
 	return (
@@ -68,16 +60,16 @@ export const RightDetail = () => {
 					Private Message
 				</ButtonBase>
 				<FlexLayout direction="row" justify="center" align="start" className="w-full gap-[15px]">
-					<Link href="/facebook" className="text-black hover:text-blue-hover transition-all">
+					<Link href="/" className="text-black hover:text-blue-hover transition-all">
 						<Facebook size={20} className="transition-all" />
 					</Link>
-					<Link href="/facebook" className="text-black hover:text-blue-hover transition-all">
+					<Link href="/" className="text-black hover:text-blue-hover transition-all">
 						<Twitter size={20} className="transition-all" />
 					</Link>
-					<Link href="/facebook" className="text-black hover:text-blue-hover transition-all">
+					<Link href="/" className="text-black hover:text-blue-hover transition-all">
 						<Linkedin size={20} className="transition-all" />
 					</Link>
-					<Link href="/facebook" className="text-black hover:text-blue-hover transition-all">
+					<Link href="/" className="text-black hover:text-blue-hover transition-all">
 						<Instagram size={20} className="transition-all" />
 					</Link>
 				</FlexLayout>
@@ -129,15 +121,16 @@ interface ProfessionalSkillsProps {
 }
 const ProfessionalSkills: React.FC<ProfessionalSkillsProps> = ({skills}) => {
 	return (
-		<FlexLayout direction="col" className="rounded-[8px] w-full">
+		<FlexLayout direction="col" className="rounded-[8px] w-full pb-2">
 			<h2 className="text-[18px] font-semibold text-black mb-[18px]">Professional Skills</h2>
 			<FlexLayout direction="row" justify="start" align="start" className="gap-[10px] flex-wrap">
 				{skills?.map((skill, index) => (
-					<Link key={index} href={`/${skill?.value}`}>
-						<ButtonLikeBadge className="border-gray-200 hover:bg-gray-200 hover:text-black">
-							{skill?.label}
-						</ButtonLikeBadge>
-					</Link>
+					<ButtonLikeBadge
+						key={index}
+						className="border-gray-200 hover:bg-gray-200 hover:text-black"
+					>
+						{skill?.label}
+					</ButtonLikeBadge>
 				))}
 			</FlexLayout>
 		</FlexLayout>

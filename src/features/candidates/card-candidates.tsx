@@ -52,7 +52,7 @@ export const CardCandidates = () => {
 							key={index}
 							title={
 								<FlexLayout align="center" className="gap-2 text-[18px] font-bold">
-									Candidate ${index + 1}{" "}
+									<Link className="text-black hover:text-blue-hover transition-all hover:no-underline" href={`/candidate/${index}`}>Candidate ${index + 1}</Link>
 									<div className="p-1.5 rounded-full bg-green-600">
 										<Crown size={14} className="text-white" />
 									</div>
@@ -66,7 +66,7 @@ export const CardCandidates = () => {
 									Developer
 								</Link>
 							}
-							icon={<Image src="/images/avatar.png" alt="avatar" />}
+							icon={<Image src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&h=128&q=80" alt="avatar" />}
 							location={"New York"}
 							cost={{
 								value: "2000",

@@ -1,3 +1,4 @@
+"use client";
 import React, { HTMLAttributes } from 'react';
 
 import { Loader2 } from 'lucide-react';
@@ -41,7 +42,9 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
 			className={cn(
 				"h-[50px] cursor-pointer w-fit px-10 font-semibold transition-all",
 				variant === "default" ? "bg-blue-hover text-white hover:bg-blue-hover" : "",
-				variant === "secondary" ? "bg-blue-not-hover hover:bg-blue-hover text-blue-hover  hover:text-white" : "",
+				variant === "secondary"
+					? "bg-blue-not-hover hover:bg-blue-hover text-blue-hover  hover:text-white"
+					: "",
 				className
 			)}
 			{...props}
@@ -79,17 +82,56 @@ export const ButtonLikeBadge: React.FC<ButtonLikeBadgeProps> = ({
 	);
 };
 
-export const LoadMoreButton: React.FC<ButtonLoadMoreProps> = ({className, isLoading, children, onClick, ...props}) => {
+export const LoadMoreButton: React.FC<ButtonLoadMoreProps> = ({
+	className,
+	isLoading,
+	children,
+	onClick,
+	...props
+}) => {
+	return (
+		<div
+			className={cn("text-blue-hover w-fit px-[15px] font-semibold cursor-pointer", className)}
+			onClick={() => onClick && onClick()}
+			{...props}
+		>
+			{isLoading ? (
+				<Loader2 strokeWidth={1.5} className="animate-spin text-gray-500 " size={40} />
+			) : (
+				children(isLoading || false)
+			)}
+		</div>
+	);
+};
+
+interface HoverButtonProps {
+	children: React.ReactNode;
+	className?: string;
+	lineClassName?: string;
+	onClick?: () => void;
+}
+
+export const HoverButton: React.FC<HoverButtonProps> = ({
+	children,
+	className,
+	lineClassName,
+	onClick,
+}) => {
 	return (
 		<div
 			className={cn(
-				"text-blue-hover w-fit px-[15px] font-semibold cursor-pointer",
+				"bg-transparent group relative text-white cursor-pointer inline-block hover:bg-transparent shadow-none group",
 				className
 			)}
 			onClick={() => onClick && onClick()}
-      {...props}
 		>
-			{isLoading ? <Loader2 strokeWidth={1.5} className="animate-spin text-gray-500 " size={40} /> : children(isLoading || false)}
+			{children}
+			<span
+				className={cn(
+					"mt-1 block h-0.5 origin-left scale-x-0 transform bg-white transition-transform duration-300 ease-in-out group-hover:origin-left group-hover:scale-x-100 group-[&:not(:hover)]:origin-right",
+					lineClassName
+				)}
+			></span>
 		</div>
 	);
 };

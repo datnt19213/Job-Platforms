@@ -1,8 +1,21 @@
 @import "tailwindcss";
 @import "../assets/fonts/fonts.css";
 
-html{
+html, body {
   font-family: var(--font-svn-gilroy) !important;
+  height: fit-content;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input, textarea {
+  @apply focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:ring-0 focus:ring-offset-0;
+}
+
+button {
+  cursor: pointer;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -59,6 +72,7 @@ html{
   --blue-share: #1967D2;
   --purple-share: #BC91E8;
   --red-share: #D93025;
+  --blue-dark: #131A51;
 }
 
 .dark {
@@ -114,6 +128,7 @@ html{
   --blue-share: #1967D2;
   --purple-share: #BC91E8;
   --red-share: #D93025;
+  --blue-dark: #131A51;
 }
 
 @theme inline {
@@ -154,6 +169,7 @@ html{
   --color-blue-share: var(--blue-share);
   --color-purple-share: var(--purple-share);
   --color-red-share: var(--red-share); 
+  --color-blue-dark: var(--blue-dark);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -222,6 +238,7 @@ html{
   --color-blue-share: var(--blue-share);
   --color-purple-share: var(--purple-share);
   --color-red-share: var(--red-share);
+  --color-blue-dark: var(--blue-dark);
   
 }
 

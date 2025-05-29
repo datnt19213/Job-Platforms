@@ -20,6 +20,8 @@ import {
 	Coins,
 } from "lucide-react";
 import SharePost from "@/components/customs/SharePost";
+import { JobVideo } from "./job-video";
+import { Separator } from "@/components/ui/separator";
 
 interface MainContentProps {
 	slug: string;
@@ -120,7 +122,10 @@ export const MainContent: React.FC<MainContentProps> = ({slug}) => {
 					}
 				/>
 			</FlexLayout>
+			<Separator className="my-[15px] 990:my-[30px] bg-gray-200" />
       <SharePost />
+			<Separator className="my-[15px] 990:my-[30px] bg-gray-200" />
+			<JobVideo />
 		</FlexLayout>
 	);
 };

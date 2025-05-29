@@ -100,7 +100,7 @@ export const Review = () => {
 						placeholder="Comment"
 						value={comment}
 						onChange={(e) => setComment(e.target.value)}
-						className="min-h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-hover border shadow-none outline-none bg-slate-50 focus:bg-white transition-all"
+						className="min-h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-hover border shadow-none outline-none bg-slate-50 focus:bg-white transition-colors"
 						required
 					/>
 				</div>

@@ -35,8 +35,8 @@ const HeaderBar = () => {
 	return (
 		<div
 			className={cn(
-				"h-[70px] xl:h-[110px] w-full transition-all px-[15px] py-[15px] xl:px-[45px] xl:py-[15px]",
-				pathName === "/" ? "bg-transparent" : "bg-white shadow-light"
+				"h-[70px] xl:h-[110px] w-full transition-all px-[15px] py-[15px] xl:px-[45px] xl:py-[15px] z-50",
+				pathName === "/" ? "bg-white 1200:bg-transparent absolute top-0 left-0 " : "relative bg-white shadow-light",
 			)}
 		> 
 			<div
@@ -44,8 +44,8 @@ const HeaderBar = () => {
 					"w-full h-full flex items-center transition-all max-w-[970px] justify-center xl:max-w-full xl:justify-between mx-auto"
 				)}
 			>
-				<LeftHeader isMobile={isMobile} pathName={pathName} navigations={NavigationList} />
-				<RightHeader isMobile={isMobile} pathName={pathName} />
+				<LeftHeader isHome={pathName === "/"} isMobile={isMobile} pathName={pathName} navigations={NavigationList} />
+				<RightHeader isHome={pathName === "/"} isMobile={isMobile} pathName={pathName} />
 			</div>
 		</div>
 	);

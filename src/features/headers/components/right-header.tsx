@@ -8,19 +8,21 @@ import {
 
 import { ButtonBase } from '@/components/customs/Buttons';
 import { FlexLayout } from '@/components/customs/FlexLayout';
+import { cn } from '@/lib/utils';
 
 interface LeftHeaderProps {
 	isMobile: boolean;
+	isHome: boolean;
 	pathName: string;
 }
-const RightHeader: React.FC<LeftHeaderProps> = ({isMobile, pathName}) => {
+const RightHeader: React.FC<LeftHeaderProps> = ({isMobile, isHome, pathName}) => {
 	if (!isMobile)
 		return (
 			<FlexLayout className="w-1/2 gap-4" justify="end">
-				<ButtonBase className="rounded-[8px] font-semibold text-[15px]" variant={"secondary"}>
+				<ButtonBase className={cn("rounded-[8px] font-semibold text-[15px]", isHome ? "text-white bg-white/10 border border-white/10 hover:border-white hover:bg-transparent" : "text-black bg-white border border-gray-300")} variant={"secondary"}>
 					Login/Register
 				</ButtonBase>
-				<ButtonBase className="rounded-[8px] font-semibold text-[15px] text-white bg-blue-hover" variant={"default"}>
+				<ButtonBase className={cn("rounded-[8px] font-semibold text-[15px] ", isHome ? "text-blue-hover bg-white hover:text-white" : "text-white bg-blue-hover")} variant={"default"}>
 					Job Post
 				</ButtonBase>
 			</FlexLayout>
@@ -32,17 +34,17 @@ const RightHeader: React.FC<LeftHeaderProps> = ({isMobile, pathName}) => {
 				<User2
 					size={24}
 					strokeWidth={1.7}
-					className="hover:text-blue-hover transition-all cursor-pointer"
+					className={cn("hover:text-blue-hover transition-all cursor-pointer", isHome ? "text-black 1200:text-white" : "text-black")}
 				/>
 				<Bell
 					size={24}
 					strokeWidth={1.7}
-					className="hover:text-blue-hover transition-all cursor-pointer"
+					className={cn("hover:text-blue-hover transition-all cursor-pointer", isHome ? "text-black 1200:text-white" : "text-black")}
 				/>
 				<AlignRight
 					size={24}
 					strokeWidth={1.7}
-					className="hover:text-blue-hover transition-all cursor-pointer"
+					className={cn("hover:text-blue-hover transition-all cursor-pointer", isHome ? "text-black 1200:text-white" : "text-black")}
 				/>
 			</FlexLayout>
 		);

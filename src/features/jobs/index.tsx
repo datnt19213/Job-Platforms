@@ -5,7 +5,7 @@ import { FlexLayout } from '@/components/customs/FlexLayout';
 import { GridLayout } from '@/components/customs/GridLayout';
 import BodyContainer from '@/containers/body-container';
 
-import BigSearchBar from './components/big-search-bar';
+import BigSearchBar from '../../components/customs/BigSearchBar';
 import LeftResults from './components/left-results';
 import RightMiniDetail from './components/right-mini-detail';
 

@@ -5,7 +5,6 @@ import {
   DollarSign,
   MapPin,
 } from 'lucide-react';
-import Link from 'next/link';
 
 import {
   ButtonBase,
@@ -34,7 +33,7 @@ export const RelatedCandidate: React.FC<RelatedCandidateProps> = ({
 	skills,
 }) => {
 	return (
-		<FlexLayout direction="col" className='w-full'>
+		<FlexLayout direction="col" className="w-full">
 			<span className="font-semibold text-[18px] 1200:text-[30px] mb-[15px] ">
 				Related Candidates
 			</span>
@@ -46,7 +45,7 @@ export const RelatedCandidate: React.FC<RelatedCandidateProps> = ({
 				<CardIconDetail
 					icon="icon-1"
 					iconClassName="min-w-[70px] h-[70px]"
-          className='w-full'
+					className="w-full"
 					title={
 						<div className="font-semibold text-[22px] flex items-center gap-2">
 							{name} {featured && <span className="text-lime-600 text-xs">Featured</span>}
@@ -71,21 +70,24 @@ export const RelatedCandidate: React.FC<RelatedCandidateProps> = ({
 								align="start"
 								className="gap-[10px] flex-wrap hidden 990:flex"
 							>
-								{skills?.map((skill, index) => (
-									<Link key={index} href={`/${skill?.value}`}>
-										<ButtonLikeBadge className="border-gray-200 hover:bg-black hover:text-white">
-											{skill?.label}
-										</ButtonLikeBadge>
-									</Link>
+								{skills && skills?.map((skill, index) => (
+									<ButtonLikeBadge
+										key={index}
+										className="border-gray-200 hover:bg-black hover:text-white"
+									>
+										{skill?.label}
+									</ButtonLikeBadge>
 								))}
 							</FlexLayout>
 						</FlexLayout>
 					}
 				/>
-        <FlexLayout className="gap-[10px] w-full 990:w-fit 990:flex-col 990:items-end 1200:flex-row 1200:items-center">
-          <Button variant="ghost" size="icon" className='rounded-full cursor-pointer'><Bookmark size={20} /></Button>
-          <ButtonBase variant="secondary">View Profile</ButtonBase>
-        </FlexLayout>
+				<FlexLayout className="gap-[10px] w-full 990:w-fit 990:flex-col 990:items-end 1200:flex-row 1200:items-center">
+					<Button variant="ghost" size="icon" className="rounded-full cursor-pointer">
+						<Bookmark size={20} />
+					</Button>
+					<ButtonBase variant="secondary">View Profile</ButtonBase>
+				</FlexLayout>
 			</FlexLayout>
 		</FlexLayout>
 	);

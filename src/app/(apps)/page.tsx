@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import { Button } from '@/components/ui/button';
+import { HomePage } from '@/features/home';
 
 export const metadata: Metadata = {
     title: 'Home',
@@ -24,5 +25,5 @@ export const metadata: Metadata = {
     },
   };
 export default function Home() {
-	return <Button className='font-jost' >Hello word home</Button>;
+	return <HomePage />;
 }

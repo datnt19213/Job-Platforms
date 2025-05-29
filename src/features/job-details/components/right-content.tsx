@@ -19,7 +19,7 @@ export const RightContent: React.FC<RightContentProps> = ({slug}) => {
 			direction="col"
 			justify="start"
 			align="center"
-			className="hidden 990:flex w-full px-[15px] gap-[30px]"
+			className="flex w-full px-[15px] gap-[30px]"
 		>
 			<FlexLayout direction="col" className="bg-[#F5F7FC] rounded-[8px] p-[30px] w-full gap-[15px]">
 				<FlexLayout direction="col" justify="center" align="center" className="w-full">
