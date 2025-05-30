@@ -13,7 +13,7 @@ import BodyContainer from '@/containers/body-container';
 
 export const RegisterCards = () => {
 	return (
-		<BodyContainer className="w-full max-w-[1320px] p-[15px] mt-[75px] mx-auto">
+		<BodyContainer className="w-full max-w-[1320px] p-[15px] pb-[30px] md:pt-[60px]  md:pb-[80px] mt-[75px] mx-auto">
 			<GridLayout className="!grid-cols-1 md:!grid-cols-2">
 				<ScrollAnimator isZoom={false} fade slide="left" distancing={20}>
 					<FlexLayout

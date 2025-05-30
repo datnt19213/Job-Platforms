@@ -25,15 +25,15 @@ const list = [
 
 export const PopularBrowseCards = () => {
 	return (
-		<FlexLayout direction="row" className="gap-5 text-blue-hover flex-wrap mt-[50px] min-h-[80px]">
+		<FlexLayout direction="row" className="gap-5 text-blue-hover flex-wrap mt-[20px] 990:mt-[50px] min-h-[80px]">
 			{list.map((item, index) => (
 				<FlexLayout
 					key={index}
 					direction="row"
 					align="center"
-					className="gap-x-2 rounded-full text-blue-dark h-[72px] border border-[#F5F7FB] group bg-[#F5F7FB] p-[10px] pr-[20px] hover:bg-white transition-all !duration-500 cursor-pointer"
+					className="gap-x-2 rounded-full text-blue-dark h-[44px] md:h-[72px] border border-[#F5F7FB] group bg-[#F5F7FB] p-[10px] md:pr-[20px] hover:bg-white transition-all !duration-500 cursor-pointer"
 				>
-					<div className="!size-[50px] flex items-center justify-center rounded-full bg-white group-hover:bg-blue-dark  transition-all !duration-500">
+					<div className="!size-[50px] hidden md:flex items-center justify-center rounded-full bg-white group-hover:bg-blue-dark  transition-all !duration-500">
 						{item.icon}
 					</div>
 					<span className="font-bold text-base">{item.title}</span>

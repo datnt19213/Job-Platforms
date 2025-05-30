@@ -32,6 +32,7 @@ interface ScrollAnimatorProps {
 	reverse?: boolean;
 	triggerOffset?: number;
 	className?: string;
+	contentClassName?: string;
 	triggerIds?: string[]; // NEW: multiple IDs
 	rootMargin?: string; // NEW: custom root margin
 	intersectionRootId?: string; // NEW: custom root element by id
@@ -115,6 +116,8 @@ const getVariants = (
  * @param {string} rootMargin - (0px 0px -10% 0px) - The root margin of the IntersectionObserver `-` ex: `rootMargin="0px 0px -10% 0px"`
  * @param {string} intersectionRootId - (undefined) - The id of the element to use as the root of the IntersectionObserver `-` ex: `intersectionRootId="my-element"`
  * @param {number} distancing - (80) - The distance for the slide animation (default: 80) `(0-100)` `-` ex: `distancing={80}`
+ * @param {string} className - (undefined) - The class name to apply to the component `-` ex: `className="my-class"`
+ * @param {string} contentClassName - (undefined) - The class name to apply to the content `-` ex: `contentClassName="my-class"`
  * @returns {React.ReactElement} `React.JSX.Element` The animated component 
  */
 export const ScrollAnimator = ({
@@ -136,6 +139,7 @@ export const ScrollAnimator = ({
 	reverse = false,
 	triggerOffset = 0.4,
 	className,
+	contentClassName,
 	triggerIds,
 	rootMargin = "0px 0px -10% 0px",
 	intersectionRootId,
@@ -274,7 +278,7 @@ export const ScrollAnimator = ({
 				height,
 			}}
 		>
-			<div ref={contentRef}>{children}</div>
+			<div ref={contentRef} className={contentClassName}>{children}</div>
 		</motion.div>
 	);
 };

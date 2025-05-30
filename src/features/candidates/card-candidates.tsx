@@ -66,7 +66,7 @@ export const CardCandidates = () => {
 									Developer
 								</Link>
 							}
-							icon={<Image src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&h=128&q=80" alt="avatar" />}
+							icon={<Image  src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&h=128&q=80" alt="avatar" />}
 							location={"New York"}
 							cost={{
 								value: "2000",
@@ -74,7 +74,7 @@ export const CardCandidates = () => {
 							}}
 							skills={skills}
 							type={"candidate"}
-							iconClassName="min-w-[90px] h-[90px]"
+							iconClassName="min-w-[90px] w-[90px] h-[90px]"
 							titleClassName="text-[18px] font-semibold"
 							subtitleClassName="text-[15px] text-gray-600"
 							descriptionClassName="text-[18px] line-clamp-2"

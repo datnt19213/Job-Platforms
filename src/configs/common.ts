@@ -1,6 +1,20 @@
 
+export type JobInfoItem = {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  employmentType: string;
+  salary: string;
+  experience: string;
+  education: string;
+  skills: string[];
+  category: string;
+  tags: string[];
+  postedDate: string;
+};
 
-export const JobsList = [
+export const JobsList: JobInfoItem[] = [
   {
     id: 1,
     title: 'Software Engineer',

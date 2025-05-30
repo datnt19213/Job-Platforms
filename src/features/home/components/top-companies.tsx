@@ -132,43 +132,55 @@ const listCard = [
 export const TopCompanies = () => {
 	return (
 		<BodyContainer className="w-full max-w-[1320px] mx-auto p-[15px]">
-			<FlexLayout direction="col">
-				<span className="font-bold text-[30px]">Top Company Registered</span>
-				<FlexLayout direction="row" justify="between">
-					<span className="font-medium text-[15px] text-gray-500">
-						Some of the companies we’ve helped recruit excellent applicants over the years.
-					</span>
-					<HoverButton
-						className="text-[15px] text-blue-hover "
-						lineClassName="bg-blue-hover/50 h-[0.5px]"
-					>
-						<FlexLayout direction="row" align="center" className="leading-none">
-							Browse All Companies <ChevronRight size={20} strokeWidth={1} />
-						</FlexLayout>
-					</HoverButton>
-				</FlexLayout>
+			<FlexLayout direction="col" className="gap-[15px]">
+				<ScrollAnimator isZoom={false} fade slide="down" distancing={20} className='w-full'>
+				  <span className="font-extrabold text-[25px] md:text-[30px] text-blue-dark">
+  					Top Company Registered
+  				</span>
+				</ScrollAnimator>
+				<ScrollAnimator  isZoom={false} fade slide="down" distancing={20} className='w-full'>
+				  <FlexLayout justify="between" className="flex-col md:flex-row gap-[15px]">
+  					<span className="font-medium text-[15px] text-gray-500">
+  						Some of the companies we’ve helped recruit excellent applicants over the years.
+  					</span>
+  					<HoverButton
+  						className="text-[15px] text-blue-hover w-fit"
+  						lineClassName="bg-blue-hover/50 h-[0.5px]"
+  					>
+  						<FlexLayout
+  							direction="row"
+  							align="center"
+  							className="leading-none font-medium text-[15px]"
+  						>
+  							Browse All Companies <ChevronRight size={20} strokeWidth={1} />
+  						</FlexLayout>
+  					</HoverButton>
+  				</FlexLayout>
+				</ScrollAnimator>
 			</FlexLayout>
-			<Swiper
-				modules={[Navigation, Pagination]}
-				spaceBetween={20}
-				slidesPerView={4}
-				loop
-        pagination={{clickable: true}}
-				breakpoints={{
-					400: {slidesPerView: 2},
-					768: {slidesPerView: 3},
-					1024: {slidesPerView: 4},
-				}}
-				className="!w-full"
-			>
-				{listCard.map((card) => (
-					<SwiperSlide key={card.id}>
-						<div className="p-4 w-auto mb-6">
-							<Card {...card} />
-						</div>
-					</SwiperSlide>
-				))}
-			</Swiper>
+			<ScrollAnimator isZoom={false} fade slide="up" delay={0.2}>
+				<Swiper
+					modules={[Navigation, Pagination]}
+					spaceBetween={20}
+					slidesPerView={1}
+					loop
+					pagination={{clickable: true}}
+					breakpoints={{
+						400: {slidesPerView: 2},
+						768: {slidesPerView: 3},
+						1024: {slidesPerView: 4},
+					}}
+					className="!w-full"
+				>
+					{listCard.map((card) => (
+						<SwiperSlide key={card.id}>
+							<div className="p-4 w-auto mb-6">
+								<Card {...card} />
+							</div>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</ScrollAnimator>
 		</BodyContainer>
 	);
 };
@@ -181,13 +193,13 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({title, description, icon, id}) => {
 	return (
-		<ScrollAnimator isZoom={false} fade slide="up" delay={id * 0.1} >
+		
 		  <FlexLayout
   			direction="col"
   			justify="center"
   			className="gap-[15px] p-[15px] w-full max-w-[300px] !relative group border border-gray-200 rounded-[8px] hover:bg-[#F5F7FB] transition-all"
   		>
-  			<div className="absolute top-3 right-3 p-2 hidden group-hover:block group-hover:bg-[#F5F5F5] border border-transparent group-hover:border-gray-300 rounded-full">
+  			<div className="absolute top-3 right-3 p-2 hidden group-hover:block cursor-pointer hover:bg-white transition-all group-hover:bg-[#F5F5F5] border border-transparent group-hover:border-gray-300 rounded-full">
   				<Bookmark size={16} strokeWidth={1.3} />
   			</div>
   			<Image
@@ -201,6 +213,5 @@ const Card: React.FC<CardProps> = ({title, description, icon, id}) => {
   			</FlexLayout>
   			<ButtonBase className="w-full mt-4 bg-gray-100 shadow-none text-blue-dark group-hover:bg-blue-dark hover:bg-blue-dark  group-hover:text-white transition-all">Open Jobs - {id} </ButtonBase>
   		</FlexLayout>
-		</ScrollAnimator>
 	);
 };

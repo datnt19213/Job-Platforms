@@ -43,7 +43,7 @@ export const CandidateInfo: React.FC<CandidateInfoProps> = ({
 						</div>
 					}
 					description={
-						<FlexLayout direction="row" justify="start" align="start" className="gap-[20px]">
+						<FlexLayout justify="start" align="start" className="flex-col md:flex-row gap-2 md:gap-[20px]">
 							<span className="text-sm font-medium">{jobTitle}</span>
 							<FlexLayout direction="row" justify="start" align="center" className="gap-[5px]">
 								<MapPin size={18} />

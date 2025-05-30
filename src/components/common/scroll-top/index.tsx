@@ -31,7 +31,7 @@ const ScrollTopButton = () => {
 		<Button
       onClick={handleScroll}
 			size="icon"
-			className="transform-all  z-50 size-12 cursor-pointer rounded-full fixed bottom-[50px] right-[50px] group bg-[#1967d2]/30 hover:bg-[#1967d2] text-[#1967d2] hover:text-white"
+			className="transform-all  z-50 size-10 cursor-pointer rounded-full fixed bottom-[50px] right-[50px] group bg-[#1967d212] hover:bg-[#1967d2] text-[#1967d2] hover:text-white"
 		>
 			<ChevronUp strokeWidth={1} />
 		</Button>

@@ -107,8 +107,8 @@ export const Hero = () => {
 					/>
 				)}
 			</FlexLayout>
-				<FlexLayout ref={ref} className="relative z-[2] max-w-[768px] my-auto">
-			<ScrollAnimator isZoom={false} fade slide="up" distancing={20}>
+			<FlexLayout ref={ref} className="relative z-[2] max-w-[768px] my-auto">
+				<ScrollAnimator isZoom={false} fade slide="up" distancing={20}>
 					<BigSearchBar
 						type={"job"}
 						classNames={{
@@ -150,12 +150,14 @@ export const Hero = () => {
 								</Link>
 							))}
 						</FlexLayout>
-						<FlexLayout
-							className="py-[15px] 990:py-[30px] flex-col items-center md:flex-row md:justify-between md:items-center gap-[30px] 990:gap-[50px] overflow-x-hidden"
-						>
-							<FlexLayout direction="row" align="center" className="text-[15px] gap-2 h-[50px] w-full md:w-fit justify-center">
+						<FlexLayout className="py-[15px] 990:py-[30px] flex-col items-center md:flex-row md:justify-between md:items-center gap-[30px] 990:gap-[50px] overflow-x-hidden">
+							<FlexLayout
+								direction="row"
+								align="center"
+								className="text-[15px] gap-2 h-[50px] w-full md:w-fit justify-center"
+							>
 								<span className="font-semibold text-white">10K+ Candidates</span>
-								<FlexLayout direction="row" align="center" className='w-fit'>
+								<FlexLayout direction="row" align="center" className="w-fit">
 									{CandidatesList.slice(0, 3).map((item, index) => {
 										return (
 											<Link href={`/`} key={index}>
@@ -192,14 +194,13 @@ export const Hero = () => {
 								isOpen={isOpen}
 								onClose={() => setIsOpen(false)}
 							>
-									Must be login before
+								Must be login before
 							</Modal>
 						</FlexLayout>
 					</BigSearchBar>
-					</ScrollAnimator>
-					<div className="w-[calc(100%-768px)]"></div>
-				</FlexLayout>
-			
+				</ScrollAnimator>
+				<div className="w-[calc(100%-768px)]"></div>
+			</FlexLayout>
 		</FlexLayout>
 	);
 };

@@ -34,7 +34,7 @@ export const MainContent: React.FC<MainContentProps> = ({slug}) => {
 				justify="start"
 				className="border border-gray-200 rounded-[18px] p-[15px] min-[990px]:p-[30]"
 			>
-				<FlexLayout direction="row" justify="between" align="start" className="">
+				<FlexLayout justify="between" align="start" className="flex-col md:flex-row">
 					<CardIconDetail
 						icon="icon-1"
 						title="Top 5 asdasdas"
@@ -72,7 +72,7 @@ export const MainContent: React.FC<MainContentProps> = ({slug}) => {
 			>
 				<FlexLayout direction="col" justify="start" className="gap-[20px]">
 					<span className="font-semibold text-[18px] min-[990px]:text-[30px]">Job Overview</span>
-					<GridLayout className="grid min-[990px]:!grid-cols-[1fr_1fr_1fr] min-[1280px]:!grid-cols-[1fr_1fr_1fr_1fr] border-b rounded-[8px] border-gray-200 pb-[15px] mb-[15px]">
+					<GridLayout className="grid !grid-cols-[1fr] md:!grid-cols-[1fr_1fr] min-[990px]:!grid-cols-[1fr_1fr_1fr] min-[1280px]:!grid-cols-[1fr_1fr_1fr_1fr] border-b rounded-[8px] border-gray-200 pb-[15px] mb-[15px]">
 						<CardIconDetail
 							icon={<Calendar size={22} className="text-blue-hover" />}
 							title="Date Posted"

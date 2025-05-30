@@ -173,7 +173,7 @@ const BigSearchBar: React.FC<BigSearchBarProps> = ({
 							).length === 2 && "990:!grid-cols-[1fr_1fr_0.5fr]",
 							["keyword", "location", "category"].filter(
 								(key) => allows[key as keyof typeof allows]
-							).length === 3 && "990:!grid-cols-[1fr_1fr_0.5fr]"
+							).length === 3 && "990:!grid-cols-[1fr_1fr_1fr_0.5fr]"
 						)}
 					>
 						{allows.keyword && (

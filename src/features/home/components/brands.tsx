@@ -60,28 +60,28 @@ export const Brands = () => {
 	const nextRef = useRef<HTMLButtonElement>(null);
 	return (
 		<BodyContainer className="w-full max-w-[1320px] mx-auto p-[15px] py-[50px]">
-			<ScrollAnimator isZoom={false} fade slide="up" distancing={20}>
+			<ScrollAnimator isZoom={false} fade slide="up" distancing={20} className='w-full'>
 				<FlexLayout direction="row" className="relative w-full">
 					<Button
 						size="icon"
 						variant="ghost"
 						ref={prevRef}
-						className="absolute cursor-pointer z-[2] left-0 top-1/2 -translate-y-1/2"
+						className="absolute z-[2] left-0 top-1/2 -translate-y-1/2 group bg-blue-not-hover cursor-pointer hover:bg-blue-hover transition-all"
 					>
-						<ChevronLeft className="text-blue-dark" size={24} />
+						<ChevronLeft className=" text-blue-hover group-hover:text-white " size={24} />
 					</Button>
 					<Button
 						size="icon"
 						variant="ghost"
 						ref={nextRef}
-						className="absolute cursor-pointer z-[2] right-0 top-1/2 -translate-y-1/2"
+						className="absolute z-[2] right-0 top-1/2 -translate-y-1/2 group bg-blue-not-hover cursor-pointer   hover:bg-blue-hover transition-all"
 					>
-						<ChevronRight className="text-blue-dark" size={24} />
+						<ChevronRight className="   text-blue-hover group-hover:text-white" size={24} />
 					</Button>
 					<Swiper
 						modules={[Navigation]}
 						spaceBetween={20}
-						slidesPerView={6}
+						slidesPerView={1}
 						loop
 						breakpoints={{
 							400: {slidesPerView: 2},
