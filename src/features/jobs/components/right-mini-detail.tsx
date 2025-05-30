@@ -16,7 +16,6 @@ import {
   Zap,
 } from 'lucide-react';
 import Link from 'next/link';
-import StickyBox from 'react-sticky-box';
 
 import { ScrollAnimator } from '@/components/customs/AnimatedComponent';
 import {
@@ -31,8 +30,7 @@ import JobInfoBlock from '@/components/customs/JobInfoBlock';
 const RightMiniDetail = () => {
 	return (
 		<FlexLayout direction="row" align='start' className="px-[15px] hidden 990:flex">
-			<StickyBox>
-				<ScrollAnimator isZoom={false} fade slide="up" distancing={20} delay={0.3}>
+			<ScrollAnimator isZoom={false} fade slide="up" distancing={20} delay={0.3} className='sticky top-1'>
 					<FlexLayout
 						direction="col"
 						justify="start"
@@ -144,7 +142,6 @@ const RightMiniDetail = () => {
 						</FlexLayout>
 					</FlexLayout>
 				</ScrollAnimator>
-			</StickyBox>
 		</FlexLayout>
 	);
 };
