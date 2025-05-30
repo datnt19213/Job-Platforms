@@ -30,18 +30,18 @@ export const DownloadApp = () => {
 						<ScrollAnimator isZoom={false} fade slide="left" distancing={20} className="my-auto">
 							<FlexLayout direction="col" justify="center" className="w-full h-full gap-[30px] ">
 								<span className="text-[40px] font-extrabold text-white">Download the App</span>
-								<span className="text-[15px] font-medium text-white w-1/2">
+								<span className="text-[15px] font-medium text-white md:w-1/2">
 									New features. New appearance. No risk and credit card required.
 								</span>
-								<FlexLayout direction="row" className="w-full gap-[10px] flex-wrap">
-									<div className="h-[60px] w-[140px] md:w-[190px] flex gap-1 items-center md:gap-5 bg-white rounded-[8px] px-[10px] md:px-[22px] cursor-pointer">
+								<FlexLayout direction="row" className="w-full gap-[10px] flex-nowrap">
+									<div className="min-h-[60px] h-fit md:min-w-[140px] w-full sm:w-fit md:w-[190px] flex gap-1 items-center md:gap-5 bg-white rounded-[8px] px-[10px] md:px-[22px] cursor-pointer">
 										<Image
 											src={applestore.src}
 											alt="download-app"
 											className="min-w-[30px] h-[30px] object-contain"
 										/>
 										<div className="flex flex-col">
-											<span className="text-[11px] md:text-[12px] font-medium text-blue-dark">
+											<span className="text-[11px] md:text-[12px] font-medium text-blue-dark text-wrap ">
 												Download on the
 											</span>
 											<span className="text-[11px] md:text-[12px] font-bold text-blue-dark">
@@ -49,14 +49,14 @@ export const DownloadApp = () => {
 											</span>
 										</div>
 									</div>
-									<div className="h-[60px] w-[140px] md:w-[190px] flex gap-1 items-center md:gap-5 bg-white rounded-[8px] px-[10px] md:px-[22px] cursor-pointer">
+									<div className="min-h-[60px] h-fit md:min-w-[140px] w-full sm:w-fit md:w-[190px] flex gap-1 items-center md:gap-5 bg-white rounded-[8px] px-[10px] md:px-[22px] cursor-pointer">
 										<Image
 											src={chplay.src}
 											alt="download-app"
 											className="min-w-[30px] h-[30px] object-contain"
 										/>
 										<div className="flex flex-col">
-											<span className="text-[11px] md:text-[12px] font-medium text-blue-dark">
+											<span className="text-[11px] md:text-[12px] font-medium text-blue-dark text-wrap ">
 												Download on the
 											</span>
 											<span className="text-[11px] md:text-[12px] font-bold text-blue-dark">
@@ -67,7 +67,7 @@ export const DownloadApp = () => {
 								</FlexLayout>
 							</FlexLayout>
 						</ScrollAnimator>
-						<ScrollAnimator isZoom={false} fade slide="right" distancing={20} className="m-auto">
+						<ScrollAnimator isZoom={false} fade slide="right" distancing={20} className="my-auto flex justify-center">
 							<Image
 								src={h136.src}
 								alt="download-app"

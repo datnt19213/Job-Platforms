@@ -1,19 +1,32 @@
 "use client";
-import React, {useEffect, useState} from "react";
+import React from 'react';
 
-import {Bookmark, Briefcase, Clock, DollarSign} from "lucide-react";
+import {
+  Bookmark,
+  Briefcase,
+  Clock,
+  DollarSign,
+} from 'lucide-react';
+import Link from 'next/link';
 
-import {ScrollAnimator} from "@/components/customs/AnimatedComponent";
-import {ButtonBase} from "@/components/customs/Buttons";
-import CardIconDetail from "@/components/customs/CardIconDetail";
-import {FlexLayout} from "@/components/customs/FlexLayout";
-import {Badge} from "@/components/ui/badge";
-import {Button} from "@/components/ui/button";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
-import {JobInfoItem, JobsList} from "@/configs/common";
-import BodyContainer from "@/containers/body-container";
-import {cn} from "@/lib/utils";
-import Link from "next/link";
+import { ScrollAnimator } from '@/components/customs/AnimatedComponent';
+import { ButtonBase } from '@/components/customs/Buttons';
+import CardIconDetail from '@/components/customs/CardIconDetail';
+import { FlexLayout } from '@/components/customs/FlexLayout';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui/tabs';
+import {
+  JobInfoItem,
+  JobsList,
+} from '@/configs/common';
+import BodyContainer from '@/containers/body-container';
+import { cn } from '@/lib/utils';
 
 type TabListProps = {
 	label: string;
@@ -49,7 +62,7 @@ export const JobsLatest = () => {
 	}
 	return (
 		<BodyContainer className="w-full max-w-[1320px] mx-auto p-[15px] mt-[75px]">
-			<ScrollAnimator isZoom={false} fade slide="down" className="w-full">
+			<ScrollAnimator isZoom={false} fade slide="down" className="w-full !overflow-visible" distancing={20}>
 				<FlexLayout direction="col" align="center" className="w-full">
 					<span className="font-extrabold text-[24px]  text-blue-dark">Latest Jobs</span>
 					<span className="text-[14px] text-center  font-medium text-gray-700">
