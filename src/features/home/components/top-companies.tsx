@@ -10,6 +10,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import {
+  FreeMode,
   Navigation,
   Pagination,
 } from 'swiper/modules';
@@ -26,6 +27,7 @@ import {
 import { FlexLayout } from '@/components/customs/FlexLayout';
 import Image from '@/components/customs/Image';
 import BodyContainer from '@/containers/body-container';
+import { useIsMobile } from '@/hooks/common/use-mobile';
 
 const listCard = [
 	{
@@ -33,7 +35,7 @@ const listCard = [
 		title: "Sagments",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				New York
 			</div>
 		),
@@ -44,7 +46,7 @@ const listCard = [
 		title: "Technova",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				San Francisco
 			</div>
 		),
@@ -55,7 +57,7 @@ const listCard = [
 		title: "DataFlow",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				London
 			</div>
 		),
@@ -66,7 +68,7 @@ const listCard = [
 		title: "CloudPeak",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				Toronto
 			</div>
 		),
@@ -77,7 +79,7 @@ const listCard = [
 		title: "InnoSys",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				Berlin
 			</div>
 		),
@@ -88,7 +90,7 @@ const listCard = [
 		title: "GlobalTech",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				Singapore
 			</div>
 		),
@@ -99,7 +101,7 @@ const listCard = [
 		title: "CloudPeak",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				Toronto
 			</div>
 		),
@@ -110,7 +112,7 @@ const listCard = [
 		title: "InnoSys",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				Berlin
 			</div>
 		),
@@ -121,7 +123,7 @@ const listCard = [
 		title: "GlobalTech",
 		description: (
 			<div className="flex items-center gap-2">
-				<MapPin size={20} />
+				<MapPin className='min-w-5 w-5 h-5' strokeWidth={1.5} />
 				Singapore
 			</div>
 		),
@@ -130,39 +132,39 @@ const listCard = [
 ];
 
 export const TopCompanies = () => {
+	const isMobile = useIsMobile();
 	return (
 		<BodyContainer className="w-full max-w-[1320px] mx-auto p-[15px]">
-			<FlexLayout direction="col" className="gap-[15px]">
-				<ScrollAnimator isZoom={false} fade slide="down" distancing={20} className='w-full'>
-				  <span className="font-extrabold text-[25px] md:text-[30px] text-blue-dark">
-  					Top Company Registered
-  				</span>
-				</ScrollAnimator>
-				<ScrollAnimator  isZoom={false} fade slide="down" distancing={20} className='w-full'>
-				  <FlexLayout justify="between" className="flex-col md:flex-row gap-[15px]">
-  					<span className="font-medium text-[15px] text-gray-500">
-  						Some of the companies we’ve helped recruit excellent applicants over the years.
-  					</span>
-  					<HoverButton
-  						className="text-[15px] text-blue-hover w-fit"
-  						lineClassName="bg-blue-hover/50 h-[0.5px]"
-  					>
-  						<FlexLayout
-  							direction="row"
-  							align="center"
-  							className="leading-none font-medium text-[15px]"
-  						>
-  							Browse All Companies <ChevronRight size={20} strokeWidth={1} />
-  						</FlexLayout>
-  					</HoverButton>
-  				</FlexLayout>
-				</ScrollAnimator>
-			</FlexLayout>
+			<ScrollAnimator isZoom={false} fade slide="down" distancing={20} className="w-full">
+				<FlexLayout direction="col" className="gap-[15px]">
+					<span className="font-extrabold text-[25px] md:text-[30px] text-blue-dark">
+						Top Company Registered
+					</span>
+					<FlexLayout justify="between" className="flex-col md:flex-row gap-[15px]">
+						<span className="font-medium text-[15px] text-gray-500">
+							Some of the companies we’ve helped recruit excellent applicants over the years.
+						</span>
+						<HoverButton
+							className="text-[15px] text-blue-hover w-fit"
+							lineClassName="bg-blue-hover/50 h-[0.5px]"
+						>
+							<FlexLayout
+								direction="row"
+								align="center"
+								className="leading-none font-medium text-[15px]"
+							>
+								Browse All Companies <ChevronRight size={20} strokeWidth={1} />
+							</FlexLayout>
+						</HoverButton>
+					</FlexLayout>
+				</FlexLayout>
+			</ScrollAnimator>
 			<ScrollAnimator isZoom={false} fade slide="up" delay={0.2}>
 				<Swiper
-					modules={[Navigation, Pagination]}
-					spaceBetween={20}
+					modules={[Navigation, Pagination, FreeMode]}
+					spaceBetween={isMobile ? 10 : 20}
 					slidesPerView={1}
+					freeMode
 					loop
 					pagination={{clickable: true}}
 					breakpoints={{
@@ -170,13 +172,11 @@ export const TopCompanies = () => {
 						768: {slidesPerView: 3},
 						1024: {slidesPerView: 4},
 					}}
-					className="!w-full"
+					className="!w-full max-h-[400px] mt-[15px]"
 				>
 					{listCard.map((card) => (
-						<SwiperSlide key={card.id}>
-							<div className="p-4 w-auto mb-6">
+						<SwiperSlide key={card.id} className='mb-[40px] min-w-[165px]'>
 								<Card {...card} />
-							</div>
 						</SwiperSlide>
 					))}
 				</Swiper>
@@ -193,25 +193,26 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({title, description, icon, id}) => {
 	return (
-		
-		  <FlexLayout
-  			direction="col"
-  			justify="center"
-  			className="gap-[15px] p-[15px] w-full max-w-[300px] !relative group border border-gray-200 rounded-[8px] hover:bg-[#F5F7FB] transition-all"
-  		>
-  			<div className="absolute top-3 right-3 p-2 hidden group-hover:block cursor-pointer hover:bg-white transition-all group-hover:bg-[#F5F5F5] border border-transparent group-hover:border-gray-300 rounded-full">
-  				<Bookmark size={16} strokeWidth={1.3} />
-  			</div>
-  			<Image
-  				src={icon}
-  				alt="icon"
-  				className="w-[90px] !h-[90px]  mx-auto object-cover rounded-full aspect-square"
-  			/>
-  			<span className="font-semibold text-[18px] text-center">{title}</span>
-  			<FlexLayout direction="row" justify="center" className="gap-2">
-  				{description}
-  			</FlexLayout>
-  			<ButtonBase className="w-full mt-4 bg-gray-100 shadow-none text-blue-dark group-hover:bg-blue-dark hover:bg-blue-dark  group-hover:text-white transition-all">Open Jobs - {id} </ButtonBase>
-  		</FlexLayout>
+		<FlexLayout
+			direction="col"
+			justify="center"
+			className="gap-[15px] p-[15px] w-full max-w-[300px] !relative group border border-gray-200 rounded-[8px] hover:bg-[#F5F7FB] transition-all overflow-hidden"
+		>
+			<div className="absolute top-3 right-3 p-2 hidden group-hover:block cursor-pointer hover:bg-white transition-all group-hover:bg-[#F5F5F5] border border-transparent group-hover:border-gray-300 rounded-full">
+				<Bookmark size={16} strokeWidth={1.3} />
+			</div>
+			<Image
+				src={icon}
+				alt="icon"
+				className="w-[90px] !h-[90px]  mx-auto object-cover rounded-full aspect-square"
+			/>
+			<span className="font-semibold text-[18px] text-center text-ellipsis text-nowrap">{title}</span>
+			<FlexLayout direction="row" justify="center" className="gap-2">
+				{description}
+			</FlexLayout>
+			<ButtonBase className="w-full mt-4 bg-gray-100 shadow-none text-blue-dark group-hover:bg-blue-dark hover:bg-blue-dark  group-hover:text-white transition-all">
+				Open Jobs - {id}{" "}
+			</ButtonBase>
+		</FlexLayout>
 	);
 };

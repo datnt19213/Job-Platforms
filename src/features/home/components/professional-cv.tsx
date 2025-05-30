@@ -16,7 +16,7 @@ import BodyContainer from '@/containers/body-container';
 export const ProfessionalCv = () => {
 	return (
 		<BodyContainer className="w-full max-w-[1320px] mx-auto p-[15px]">
-			<GridLayout className="!grid-cols-1 md:!grid-cols-2 gap-5 md:!gap-0">
+			<GridLayout className="!grid-cols-1 md:!grid-cols-2 gap-5 md:!gap-0 ">
 				<FlexLayout
 					direction="row"
 					className="w-full justify-start md:justify-end relative p-0 md:p-[15px]"
@@ -48,7 +48,7 @@ export const ProfessionalCv = () => {
 					<Image
 						src={jobholder.src}
 						alt="professional-cv"
-						className="object-contain hidden  990:flex !absolute top-1/12 right-0 translate-x-1/3 z-[2]"
+						className="object-contain hidden translate-x-0 990:flex 990:translate-x-0 !absolute top-1/12 right-0 1200:translate-x-1/3 z-[2]"
 					/>
 				</FlexLayout>
 				<ScrollAnimator
@@ -57,9 +57,9 @@ export const ProfessionalCv = () => {
 					slide="right"
 					delay={0.5}
 					distancing={20}
-					className="w-full"
+					className="w-full my-auto 1200:pl-[180px]"
 				>
-					<FlexLayout className="flex-col gap-[30px] h-fit my-auto p-0 md:pl-[15px] 990:pl-[180px]">
+					<FlexLayout className="flex-col gap-[30px] h-fit my-auto p-0 md:pl-[15px] 990:pl-[180px] ">
 						<span className="font-extrabold text-blue-dark text-[25px] 990:text-[40px] ">
 							Professional CV is your ticket to the dream job
 						</span>
