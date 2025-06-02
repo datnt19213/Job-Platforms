@@ -26,6 +26,22 @@ export const NavigationList: NavigationListType[] = [
 		name: "Candidates",
 		href: "/candidates",
 	},
+	{
+		name: "Blog",
+		href: "/blog",
+	},
+	{
+		name: "About",
+		href: "/about",
+	},
+	{
+		name: "Contact",
+		href: "/contact",
+	},
+	{
+		name: "FAQ",
+		href: "/faq",
+	},
 ];
 
 const HeaderBar = () => {

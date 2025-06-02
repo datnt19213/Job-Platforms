@@ -109,6 +109,7 @@ interface HoverButtonProps {
 	className?: string;
 	lineClassName?: string;
 	onClick?: () => void;
+	isGroup?: boolean;
 }
 
 export const HoverButton: React.FC<HoverButtonProps> = ({
@@ -116,11 +117,12 @@ export const HoverButton: React.FC<HoverButtonProps> = ({
 	className,
 	lineClassName,
 	onClick,
+	isGroup = true,
 }) => {
 	return (
 		<div
 			className={cn(
-				"bg-transparent group relative text-white cursor-pointer inline-block hover:bg-transparent shadow-none group",
+				"bg-transparent relative text-white w-fit cursor-pointer inline-block hover:bg-transparent shadow-none ", isGroup && "group",
 				className
 			)}
 			onClick={() => onClick && onClick()}
@@ -128,7 +130,7 @@ export const HoverButton: React.FC<HoverButtonProps> = ({
 			{children}
 			<span
 				className={cn(
-					"mt-1 block h-0.5 origin-left scale-x-0 transform bg-white transition-transform duration-300 ease-in-out group-hover:origin-left group-hover:scale-x-100 group-[&:not(:hover)]:origin-right",
+					"mt-1 block h-0.5 origin-left scale-x-0 transform bg-blue-hover transition-transform duration-300 ease-in-out group-hover:origin-left group-hover:scale-x-100 group-[&:not(:hover)]:origin-right",
 					lineClassName
 				)}
 			></span>

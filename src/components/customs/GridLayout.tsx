@@ -1,10 +1,10 @@
 "use client";
-import React, {useEffect} from "react";
+import React, { useEffect } from 'react';
 
-import {twMerge} from "tailwind-merge";
+import { twMerge } from 'tailwind-merge';
 
 // components/layout/GridLayout.tsx
-import {useEventListener} from "@/hooks/common";
+import { useEventListener } from '@/hooks/common';
 
 interface GridLayoutProps extends React.HTMLAttributes<HTMLDivElement> {
 	columns?: number;
@@ -65,7 +65,7 @@ export const GridLayout: React.FC<GridLayoutProps> = ({
 			ref={contentRef}
 			style={{
 				gridTemplateColumns: `repeat(${currentColumns}, minmax(0, 1fr))`,
-				gap: `${gap * 0.25}rem`,
+				gap: `${gap}px !important`,
 				display: "grid",
 			}}
 			className={twMerge(className)}

@@ -6,9 +6,13 @@ import b5 from './b5.jpg';
 import b6 from './b6.jpg';
 import b7 from './b7.jpg';
 import bg_footer13 from './bg-footer13.jpg';
+import bg_test2 from './bg-test2.png';
+import bg_shape from './bg_shape.jpg';
 import business from './business.png';
+import email from './email.jpg';
 import free from './free.png';
 import chplay from './google-play.svg';
+import group8 from './group8.jpg';
 import h131 from './h131.png';
 import h132 from './h132.png';
 import h133 from './h133.png';
@@ -17,6 +21,7 @@ import h134 from './h134.jpg';
 import h135 from './h135.jpg';
 import h136_263x300 from './h136-263x300.png';
 import h136 from './h136.png';
+import image_address from './image-address.jpg';
 import jobholder_300x193 from './jobholder-300x193.png';
 import jobholder from './jobholder.png';
 import logo_white from './logo-white.png';
@@ -27,6 +32,7 @@ import register2 from './register2.jpg';
 import slider13 from './slider13.jpg';
 import slider21_300x47 from './slider21-300x47.png';
 import slider21 from './slider21.png';
+import smartphone from './smartphone.jpg';
 import upload_300x152 from './upload-300x152.png';
 import upload from './upload.png';
 import work_300x149 from './work-300x149.png';
@@ -51,9 +57,13 @@ export {
   b6,
   b7,
   bg_footer13,
+  bg_shape,
+  bg_test2,
   business,
   chplay,
+  email,
   free,
+  group8,
   h131,
   h132,
   h133,
@@ -62,6 +72,7 @@ export {
   h135,
   h136,
   h136_263x300,
+  image_address,
   jobholder,
   jobholder_300x193,
   logo,
@@ -72,6 +83,7 @@ export {
   slider13,
   slider21,
   slider21_300x47,
+  smartphone,
   upload,
   upload_300x152,
   work,

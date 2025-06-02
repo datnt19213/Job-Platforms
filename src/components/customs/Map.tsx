@@ -20,7 +20,6 @@ import {
   Popup,
   Source,
 } from 'react-map-gl/maplibre';
-import { useEventListener } from '@/hooks/common';
 
 type MapFrameProps = {
   geojsonData?: GeoJSON.FeatureCollection;
@@ -125,7 +124,7 @@ export const MapFrame: React.FC<MapFrameProps> = ({
 
   return (
     <div className="relative w-full h-full">
-        {showStyleSelector && <div id="option-map-selector" className="absolute z-10 top-[-85px] right-0 h-[80px] bg-white border-[0.5px] border-gray-100 dark:bg-black rounded p-3 space-y-2">
+        {showStyleSelector && <div id="option-map-selector" className="absolute z-10 top-5 right-5 h-[80px] bg-white border-[0.5px] border-gray-100 dark:bg-black rounded p-3 space-y-2">
           <select
             value={selectedStyle}
             onChange={e => setSelectedStyle(e.target.value as any)}

@@ -34,7 +34,7 @@ const Image: React.FC<ImageProps> = ({
 				alt={alt}
 				className={`${
 					fit === "w" ? "w-full h-auto" : fit === "h" ? "h-full w-auto" : "w-full h-full"
-				} object-cover transition-opacity duration-500 ${
+				} object-cover transition-all duration-500 ${
 					loading ? "opacity-0" : "opacity-100"
 				} ${imageClass}`}
 				onLoad={() => setLoading(false)}
