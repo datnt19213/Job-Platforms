@@ -11,6 +11,7 @@ import { ButtonBase } from '@/components/customs/Buttons';
 import { FlexLayout } from '@/components/customs/FlexLayout';
 import { cn } from '@/lib/utils';
 import { useLoginRegisterState } from '@/stores/state';
+import { useNavigationState } from '@/stores/state/navigation-state';
 
 interface LeftHeaderProps {
 	isMobile: boolean;
@@ -19,6 +20,7 @@ interface LeftHeaderProps {
 }
 const RightHeader: React.FC<LeftHeaderProps> = ({isMobile, isHome, pathName}) => {
 	const {setShowModal} = useLoginRegisterState();
+	const {setShowSheet} = useNavigationState();
 	if (!isMobile)
 		return (
 			<FlexLayout className="w-1/2 gap-4" justify="end">
@@ -38,6 +40,7 @@ const RightHeader: React.FC<LeftHeaderProps> = ({isMobile, isHome, pathName}) =>
 					size={24}
 					strokeWidth={1.7}
 					className={cn("hover:text-blue-hover transition-all cursor-pointer", isHome ? "text-black 1200:text-white" : "text-black")}
+					onClick={() => setShowModal(true)}
 				/>
 				<Bell
 					size={24}
@@ -48,6 +51,7 @@ const RightHeader: React.FC<LeftHeaderProps> = ({isMobile, isHome, pathName}) =>
 					size={24}
 					strokeWidth={1.7}
 					className={cn("hover:text-blue-hover transition-all cursor-pointer", isHome ? "text-black 1200:text-white" : "text-black")}
+					onClick={() => setShowSheet(true)}
 				/>
 			</FlexLayout>
 		);
