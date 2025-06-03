@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 
 import {
@@ -9,6 +10,7 @@ import {
 import { ButtonBase } from '@/components/customs/Buttons';
 import { FlexLayout } from '@/components/customs/FlexLayout';
 import { cn } from '@/lib/utils';
+import { useLoginRegisterState } from '@/stores/state';
 
 interface LeftHeaderProps {
 	isMobile: boolean;
@@ -16,10 +18,11 @@ interface LeftHeaderProps {
 	pathName: string;
 }
 const RightHeader: React.FC<LeftHeaderProps> = ({isMobile, isHome, pathName}) => {
+	const {setShowModal} = useLoginRegisterState();
 	if (!isMobile)
 		return (
 			<FlexLayout className="w-1/2 gap-4" justify="end">
-				<ButtonBase className={cn("rounded-[8px] font-semibold text-[15px]", isHome ? "text-white bg-white/10 border border-white/10 hover:border-white hover:bg-transparent" : "text-blue-hover bg-blue-not-hover")} variant={"secondary"}>
+				<ButtonBase onClick={() => setShowModal(true)} className={cn("rounded-[8px] font-semibold text-[15px]", isHome ? "text-white bg-white/10 border border-white/10 hover:border-white hover:bg-transparent" : "text-blue-hover bg-blue-not-hover")} variant={"secondary"}>
 					Login/Register
 				</ButtonBase>
 				<ButtonBase className={cn("rounded-[8px] font-semibold text-[15px] ", isHome ? "text-blue-hover bg-white hover:text-white" : "text-white bg-blue-hover")} variant={"default"}>
