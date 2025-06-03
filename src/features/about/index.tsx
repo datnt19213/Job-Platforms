@@ -23,8 +23,8 @@ export const Abouts = () => {
 					{label: "About", isCurrent: true},
 				]}
 			/>
-			<ScrollAnimator isZoom={false} fade slide="down" distancing={20} className="w-full">
-				<FlexLayout className="max-w-[1300px] mx-auto w-full mt-[50px]">
+			<ScrollAnimator isZoom={false} fade slide="down" distancing={20} className='mt-[50px]'>
+				<FlexLayout className="max-w-[1300px] mx-auto w-full ">
 					<GalleryImage />
 				</FlexLayout>
 			</ScrollAnimator>
